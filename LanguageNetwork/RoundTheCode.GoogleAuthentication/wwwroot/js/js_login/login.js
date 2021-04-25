@@ -1,6 +1,5 @@
 const ACCEPT_LOGIN = 1;
 document.getElementById('btnlogin').addEventListener('click', () => {
-    debugger;
     var user = $("#email").val();
     var password = $("#password").val();
     $.ajax({

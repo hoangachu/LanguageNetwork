@@ -1,27 +1,9 @@
 jQuery(document).ready(function($) {
 	
 	"use strict";
-	
-	$('#btnQuestion_i').on('click',function () {
-		removecssbutton();
-		$('#btnQuestion_i').css('background-color', 'darkgrey');
-	});
-	$('#btnQuestion_b').on('click', function () {
-		removecssbutton();
-		$('#btnQuestion_b').css('background-color', 'darkgrey');
-	});
-	$('#btnQuestion_h').on('click', function () {
-		removecssbutton();
-		$('#btnQuestion_h').css('background-color', 'darkgrey');
-	});
-	$('#btnQuestion_w').on('click', function () {
-		removecssbutton();
-		$('#btnQuestion_w').css('background-color', 'darkgrey');
-	}); 
-	$('#btnQuestion_m').on('click', function () {
-		removecssbutton();
-		$('#btnQuestion_m').css('background-color', 'darkgrey');
-	});
+
+
+
 //------- Notifications Dropdowns
   $('.top-area > .setting-area > li').on("click",function(){
 	$(this).siblings().children('div').removeClass('active');
@@ -420,11 +402,8 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 
 
 });//document ready end
-function removecssbutton()
-{
-	$('.gridbutton').find('button').css('background-color', '');
 
-}
+
 
 
 

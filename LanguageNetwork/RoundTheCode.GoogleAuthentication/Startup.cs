@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualBasic.CompilerServices;
+using RoundTheCode.GoogleAuthentication.Controllers;
 
 namespace RoundTheCode.GoogleAuthentication
 {
@@ -37,7 +39,8 @@ namespace RoundTheCode.GoogleAuthentication
             })
                 .AddCookie(options =>
                 {
-                    options.LoginPath = "/account/google-login";
+                    options.LoginPath = "/account/LoginUser";
+                  
                 })
                 .AddGoogle(options =>
                 {
@@ -92,7 +95,14 @@ namespace RoundTheCode.GoogleAuthentication
                         options.SlidingExpiration = true;
                     })
                 ;
+            services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
+            services.AddSession(cfg => {                    // Đăng ký dịch vụ Session
+                cfg.Cookie.Name = "admin";             // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
+                cfg.IdleTimeout = new TimeSpan(0,1772, 0);    // Thời gian tồn tại của Session
+            });
 
+            services.AddHttpContextAccessor();
+       
             services.AddControllersWithViews();
         }
 
@@ -116,6 +126,9 @@ namespace RoundTheCode.GoogleAuthentication
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCookiePolicy();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

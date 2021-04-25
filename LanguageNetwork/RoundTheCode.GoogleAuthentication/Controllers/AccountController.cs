@@ -5,19 +5,27 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using LanguageNetwork.Controllers;
+using LanguageNetwork.Models.Question;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MulLan.Models.User;
-
+using Newtonsoft.Json;
 
 namespace RoundTheCode.GoogleAuthentication.Controllers
 {
     [AllowAnonymous, Route("account")]
     public class AccountController : Controller
     {
+
+        public AccountController()
+        {
+            //context = Context;
+        }
         [Route("google-login")]
         public IActionResult GoogleLogin()
         {
@@ -63,7 +71,7 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
         }
         [HttpPost]
         [Route("LoginUser")]
-        public async Task<IActionResult> LoginUser(string user, string password)
+        public IActionResult LoginUser(string user, string password)
         {
             User User = new User();
             using (SqlConnection con = new SqlConnection(Startup.connectionString))
@@ -78,28 +86,27 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
                         {
                             return NoContent();
                         }
-                        List<Claim> claims = new List<Claim>()
-                        {
-                            new Claim("Name",User.UserName),
-                            new Claim("Password",User.Password)
-                        };
-                        // Create identity
-                        ClaimsIdentity identity = new ClaimsIdentity(claims, "cookie");
-                        //create principle
-                        ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
+                        //List<Claim> claims = new List<Claim>()
+                        //{
+                        //    new Claim("Name",User.UserName),
+                        //    new Claim("Password",User.Password)
+                        //};
+                        //// Create identity
+                        //ClaimsIdentity identity = new ClaimsIdentity(claims, "cookie");
+                        ////create principle
+                        //ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
 
-                        //sign-in
-                        await HttpContext.SignInAsync(
-                           scheme: "SecurityScheme",
-                           principal: claimsPrincipal,
-                           properties: new AuthenticationProperties()
-                           {
-                               IsPersistent = true,
-                               ExpiresUtc = DateTime.UtcNow.AddMinutes(100)
+                        ////sign-in
+                        //await HttpContext.SignInAsync(
+                        //   scheme: "SecurityScheme",
+                        //   principal: claimsPrincipal,
+                        //   properties: new AuthenticationProperties()
+                        //   {
+                        //       IsPersistent = true,
+                        //       ExpiresUtc = DateTime.UtcNow.AddMinutes(100)
 
-                           }
-
-                       );
+                        //   }
+                        SaveUserSession(User);
 
                     }
                     catch (Exception ex)
@@ -109,8 +116,23 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
 
                 }
 
-                return Ok(new { data = 1, url = "/Account/ReponseMainPage" });
+                return Ok(new { data = 1, url = "/Account/MainPage" });
             }
+        }
+        public void SaveUserSession(User User)
+        {
+            // Lấy ISession
+            var session = HttpContext.Session;
+            string key_access = "access";
+
+            // Lưu vào  Session thông tin truy cập
+            // Định nghĩa cấu trúc dữ liệu lưu trong Session
+
+            // Đọc chuỗi lưu trong Sessin với key = info_access
+
+            string jsonSave = JsonConvert.SerializeObject(User);
+            HttpContext.Session.SetString(key_access, jsonSave);
+
         }
         public User GetUserByUserName(string UserName)
         {
@@ -133,7 +155,11 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
                                 User.UserName = (string)dr["UserName"];
                                 User.Password = (string)dr["Password"];
                                 User.UserID = (int)dr["UserID"];
-                                User.imgURL = (string)dr["FileURL"];
+                                User.ProfileImg = dr.IsDBNull("ProfileImg") == true ? "" : (string)dr["ProfileImg"];
+                                User.UserName = (string)dr["UserName"];
+                                User.SeeLastestTime = dr.IsDBNull("SeeLastestTime") == true ? "" : (string)dr["SeeLastestTime"];
+                                User.JoinToSystemTime = dr.IsDBNull("JoinToSystemTime") == true ? "" : (string)dr["JoinToSystemTime"];
+                                User.Address = dr.IsDBNull("Address") == true ? "" : (string)dr["Address"]; 
                             }
 
 
@@ -169,10 +195,10 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
                             SqlDataReader dr = cmd.ExecuteReader();
                             while (dr.Read())
                             {
-                                User.UserName = (string)dr["UserName"];
-                                User.Password = (string)dr["Password"];
-                                User.UserID = (int)dr["UserID"];
-                                User.imgURL = (string)dr["ImagesUrl"];
+                                User.UserName = dr.IsDBNull("UserName") == true ? "" : (string)dr["UserName"]; 
+                                User.Password = dr.IsDBNull("Password") == true ? "" : (string)dr["Password"]; 
+                                User.UserID = dr.IsDBNull("UserID") == true ? 0 : (int)dr["UserID"];
+                                User.ProfileImg = dr.IsDBNull("ProfileImg") == true ? "" : (string)dr["ProfileImg"]; 
                             }
 
 
@@ -192,10 +218,52 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
             }
             return User;
         }
-        [Route("ReponseMainPage")]
-        public ActionResult ReponseMainPage()
+        [Route("MainPage")]
+        public ActionResult MainPage()
         {
-            return View();
+            List<Question> listQuestion = new List<Question>();
+            using (SqlConnection con = new SqlConnection(Startup.connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetListQuestion", con))
+                {
+                    {
+                        try
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            con.Open();
+                            SqlDataReader dr = cmd.ExecuteReader();
+
+                            while (dr.Read())
+                            {
+                                Question question = new Question();
+                                question.QuestionID = dr.IsDBNull("QuestionID") == true ? 0 : (int)dr["QuestionID"];
+                                question.QuestionTitle = dr.IsDBNull("QuestionTitle") == true ? "" : (string)dr["QuestionTitle"]; 
+                                question.QuestionBody = dr.IsDBNull("QuestionBody") == true ? "" : (string)dr["QuestionBody"]; 
+                                question.QuestionTime = dr.IsDBNull("QuestionTime") == true ? null : (DateTime?)dr["QuestionTime"];
+
+                                question.Vote = dr.IsDBNull("Vote") == true ? 0 : (int)dr["Vote"]; 
+                                question.answer = dr.IsDBNull("Answer") == true ? 0 : (int)dr["Answer"]; 
+                                question.view = dr.IsDBNull("Views") == true ? 0 : (int)dr["Views"]; 
+                                listQuestion.Add(question);
+                            }
+
+
+
+                        }
+                        catch (Exception e)
+                        {
+                            throw e;
+                        }
+
+                        con.Close();
+                    }
+
+
+                }
+                return View(listQuestion);
+            }
+
         }
     }
 }
+

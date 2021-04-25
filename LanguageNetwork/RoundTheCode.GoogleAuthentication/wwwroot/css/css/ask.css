@@ -1,0 +1,54 @@
+﻿.formquestion_body
+{
+    /*margin-top:100px;*/
+}
+.textheader_v1 {
+    height: 20px;
+    color: black;
+    font-size: 2.07692308rem !important;
+    margin-top: 30px;
+}
+.central-meta_v3 {
+    background: #fdfdfd none repeat scroll 0 0;
+    border: 1px solid #ede9e9;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100%;
+    margin-top: -150px;
+    padding: 25px;
+}
+.s-input, .s-textarea {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 0;
+    padding: .6em .7em;
+    border: 1px solid #bbc0c4;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #0c0d0e;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.15384615;
+}
+.sidebar_v1 {
+    display: table;
+    float: none;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 80%;
+}
+.gap {
+  margin-top :50px;
+}
+.widget_v1{
+    margin-top:125px;
+}
+.formquestion {
+    margin-top: -60px;
+}
+.sidebarleft{
+    background-image: url('/images/backgroundsidebar_ask.jpg');
+    background-repeat:no-repeat;
+    background-position-x:bottom;
+    background-size :98%
+}
