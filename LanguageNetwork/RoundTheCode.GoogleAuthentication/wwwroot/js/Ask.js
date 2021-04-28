@@ -1,10 +1,19 @@
 ﻿(function () {
-   
+    $('#taginput').change(function () {
+
+        if ($('.bootstrap-tagsinput').find('span').length >= 2 && $('.bootstrap-tagsinput').find('span').length <= 10) {
+           
+        }
+        else if ($('.bootstrap-tagsinput').find('span').length > 10) {
+            $('.bootstrap-tagsinput').find('span').last().remove();
+            $('.bootstrap-tagsinput').find('span.tag.label.label-info').last().remove();
+            ErrorMessage('error');
+        }
+        else {
+            
+            ErrorMessage('error');
+        }
+        $('.bootstrap-tagsinput').find('input').attr('placeholder', '');
+    });
+
 })();
-// sau khi load xong page
-jQuery(window).load(function () {
-    //$('.sidebarleft .sidebar').css('display', 'none');
-    //$('.sidebarleft').css('background-image', '/images/backgroundsidebar_ask.png');
-    //$('.sidebarright .widget').css('display', 'none');
-    //$('.btn-load-more').css('display', 'none');
-});

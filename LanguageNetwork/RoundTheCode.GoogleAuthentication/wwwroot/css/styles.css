@@ -184,6 +184,10 @@ body{text-align:center;}
 .logo{
 	float:right;	
 }
+.s-input:focus{
+	outline:none;
+	
+}
 .top-bar .-marketing-link:hover, .top-bar .-marketing-link:focus {
 	background-color: #e4e6e8;
 	color: #0c0d0e;
@@ -228,11 +232,36 @@ body{text-align:center;}
 	background-size: 25px;
 	/* background-size: 20px; */
 	width: 30px;
-	background-image: url('/images/inbox.svg');
 	background-repeat: no-repeat;
+	border: none;
+	background-color: white;
+	background-position-x: center;
+	cursor:pointer;
 }
-.img_respon:hover{
-	background-color:white;
+.img_respon_v1 {
+	background-size: 30px;
+	/* background-size: 20px; */
+	width: 30px;
+	/*background-image: url('/images/inbox.svg');*/
+	background-repeat: no-repeat;
+	border: none;
+	background-color: white;
+	background-position-x: center;
+	cursor: pointer;
+}
+.img_respon_v2 {
+	background-size: 25px;
+	/* background-size: 20px; */
+	width: 30px;
+/*	background-image: url('/images/inbox.svg');*/
+	background-repeat: no-repeat;
+	border: none;
+	background-color: white;
+	background-position-x: center;
+	cursor: pointer;
+}
+svg:hover{
+	color:black;
 }
 /*.img_respon:hover img{
 	color :aqua
@@ -248,4 +277,46 @@ a::marker {
 }
 .imgprofile{
 	width:20%;
+}
+.ps-relative {
+	position: relative !important;
+	width:50%;
+}
+.top-bar .searchbar .s-input {
+	border-color: var(--black-200);
+	background-color: var(--white);
+	box-shadow: none;
+	color: var(--black-700);
+	
+}
+.s-input.s-input__search, .s-input.s-input__creditcard {
+	padding-left: 32px;
+	margin-left: 5px;
+}
+.s-input, .s-textarea {
+	-webkit-appearance: none;
+	width: 100%;
+	margin: 0;
+	padding: .6em .7em;
+	border: 1px solid #bbc0c4;
+	border-radius: 3px;
+	font-size: 13px;
+	font-family: inherit;
+	line-height: 1.15384615;
+	scrollbar-color: var(--scrollbar) transparent;
+}
+.s-input-icon.s-input-icon__search, .s-input-icon.s-input-icon__creditcard {
+	right: auto;
+	left: .7em;
+	color: #bbc0c4;
+}
+.s-input-icon {
+	position: absolute;
+	top: 50%;
+	right: .7em;
+	margin-top: -9px;
+	pointer-events: none;
+}
+.mt-5-1 {
+	margin-top: 5em !important
 }
