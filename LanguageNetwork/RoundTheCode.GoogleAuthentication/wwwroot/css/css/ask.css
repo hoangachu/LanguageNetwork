@@ -313,3 +313,142 @@ li::marker{
 .subtext{
     font-size:15px !important;
 }
+.textappend {
+    
+    background: white;
+    font-size: 16px;
+    display: none;
+    font-family: Arial;
+    width: 257px;
+}
+.textappend_v1 {
+   
+    background: white;
+    font-size: 16px;
+    display: none;
+    font-family: Arial;
+    width:257px;
+}
+.textappend_v2 {
+
+    background: white;
+    font-size: 16px;
+    display: none;
+    font-family: Arial;
+    width: 257px;
+}
+
+.headersuggest {
+    font-size: 15px;
+    margin-left: 8px;
+    font-family: Arial;
+    flex: none;
+}
+
+.btntoggle {
+    background: white;
+    border: none;
+    height: 30px;
+    display: inline-flex;
+}
+
+.iconArrowUpAlt {
+    margin-left: 80px
+}
+
+.iconArrowDownAlt {
+    display: none;
+    margin-left: 80px
+}
+
+.ulsuggest {
+    background: white;
+    border-top: none !important;
+    display: contents;
+}
+.suggestcontent {
+    margin-top: 200px;
+    border-top: none !important;
+    width: 70%;
+    margin-left: -1px;
+    height: auto;
+    width: 260px;
+    background-color: white;
+}
+
+.headersuggest_v1 {
+    font-size: 15px;
+    margin-left: 8px;
+    font-family: Arial;
+    flex:none;
+}
+
+.btntoggle_v1 {
+    background: white;
+    border: none;
+    height: 30px;
+    display: inline-flex;
+}
+
+.iconArrowUpAlt_v1 {
+    margin-left: 80px
+}
+
+.iconArrowDownAlt_v1 {
+    display: none;
+    margin-left: 80px
+}
+
+.ulsuggest_v1 {
+    background: white;
+    border-top: none !important;
+    display: contents;
+}
+
+.suggestcontent_v1 {
+    margin-top: 200px;
+    border-top: none !important;
+}
+
+
+.headersuggest_v2 {
+    font-size: 15px;
+    margin-left: 8px;
+    font-family: Arial;
+    flex: none;
+}
+
+.btntoggle_v2 {
+    background: white;
+    border: none;
+    height: 30px;
+    display: inline-flex;
+}
+
+.iconArrowUpAlt_v2 {
+    margin-left: 80px
+}
+
+.iconArrowDownAlt_v2 {
+    display: none;
+    margin-left: 80px
+}
+
+.ulsuggest_v2 {
+    background: white;
+    border-top: none !important;
+    display: contents;
+}
+
+.suggestcontent_v2 {
+    margin-top: 200px;
+    border-top: none !important;
+}
+.yui-u {
+
+}
+.licontent::marker {
+    content: '🧡  ' !important;
+    color: red;
+    font-size: 0.5em;
+}
