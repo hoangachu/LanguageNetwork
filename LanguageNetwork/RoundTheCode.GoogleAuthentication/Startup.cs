@@ -44,13 +44,13 @@ namespace RoundTheCode.GoogleAuthentication
                 })
                 .AddGoogle(options =>
                 {
-                    options.ClientId = "35619218500-ihg8c9gmom4ccq8j4af8hjqcdt5dsdrk.apps.googleusercontent.com";
-                    options.ClientSecret = "0UcrIJipXkBafsAvnH3sDpQj";
+                    options.ClientId = "592892032767-k4qkj48f5jps8iq6qs6mu7k8tee2a8jg.apps.googleusercontent.com";
+                    options.ClientSecret = "wMEq9Z8eeEvDAO_WTfaYggqS";
                 })
                 .AddFacebook(options =>
                 {
-                    options.AppId = "353143932808462";
-                    options.ClientSecret = "94f22f24e4048719a9b48ee64bcc0631";
+                    options.AppId = "1173202739807388";
+                    options.ClientSecret = "00e3b6c4fc9f94e45f42b547bf828bcf";
                 })
 
                     .AddCookie("SecurityScheme", options =>

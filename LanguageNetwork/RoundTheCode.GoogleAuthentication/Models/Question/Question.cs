@@ -14,9 +14,12 @@ namespace LanguageNetwork.Models.Question
         public string QuestionTitle { get; set; }
         public string QuestionBody { get; set; }
         public DateTime? QuestionTime { get; set; }
+        public string QuestionTimeAbout { get; set; }
         public int Vote { get; set; }
         public int answer { get; set; }
-        public int view { get; set; }
+        public int View { get; set; }
+        public int Comment { get; set; }
+        public int Like { get; set; }
         public List<Tag.Tag> listTag { get; set; }
         public User User { get; set; }
     }

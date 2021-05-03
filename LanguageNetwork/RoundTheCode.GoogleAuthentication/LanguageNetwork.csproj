@@ -12,4 +12,12 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\avatar_user_img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Multi\Multi.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -95,6 +95,7 @@
     width: 100%;
     /* margin-top:5em;*/
     background-color: #eff0f1;
+  /*  background-image :url('/images/space-5654794.png')*/
 }
 
 .yui-t1 #yui-main,
@@ -451,4 +452,113 @@ li::marker{
     content: '🧡  ' !important;
     color: red;
     font-size: 0.5em;
+}
+img{
+    opacity:0.5
+}
+.grippie{
+    width:688px;
+}
+#footer{
+   /* position:unset;*/
+}
+.textheaderask{
+    font-size:30px;
+}
+.color {
+    color: #bbc0c4 !important;
+}
+#btnpublishquestion {
+    width: 20%;
+    border: none;
+    color: white;
+    background-color: #0095ff;
+    height: 40px;
+    margin-left: 7px;
+    
+}
+
+#btnpublishquestion :hover{
+    background-color:#115dc6
+}
+@media only screen and (max-width: 768px) {
+    .wmd-input {
+        width: 465px;
+    }
+    .grippie {
+        width: 465px;
+    }
+    #btnpublishquestion {
+        width: 50%;
+        border: none;
+        color: white;
+        background-color: #0095ff;
+        height: 40px;
+        margin-left: 7px;
+    }
+}
+
+/*Mobile first*/
+/*form mobile*/
+@media all and (min-width: 320px) {
+}
+
+/* For Tablet With Vertical Screen */
+@media all and (min-width: 600px) {
+    .wmd-input {
+        width: 465px;
+    }
+
+    .grippie {
+        width: 465px;
+    }
+
+    #btnpublishquestion {
+        width: 50%;
+        border: none;
+        color: white;
+        background-color: #0095ff;
+        height: 40px;
+        margin-left: 7px;
+    }
+}
+
+/* For Tablet With Horizontal Screen */
+@media all and (min-width: 1024px) {
+    .wmd-input {
+        width: 500px;
+    }
+
+    .grippie {
+        width: 500px;
+    }
+
+    #btnpublishquestion {
+        width: 60%;
+        border: none;
+        color: white;
+        background-color: #0095ff;
+        height: 40px;
+        margin-left: 7px;
+    }
+}
+
+/* For Desktop */
+@media all and (min-width: 1280px) {
+    .wmd-input {
+        width: 700px;
+    }
+
+    .grippie {
+        width: 700px;
+    }
+
+    #btnpublishquestion {
+        width: 60%;
+        border: none;
+        color: white;
+        background-color: #0095ff;
+        height: 40px;
+        margin-left: 7px;
+    }
 }

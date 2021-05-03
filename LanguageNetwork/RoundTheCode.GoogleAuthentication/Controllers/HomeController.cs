@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MulLan.Models.User;
 using Newtonsoft.Json;
@@ -18,23 +19,24 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private readonly IConfiguration _config;
         private readonly ILogger<HomeController> _logger;
         IHttpContextAccessor httpContextAccessor;
         //CookieValidatePrincipalContext context;
-        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor HttpContextAccessor){ 
+        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor HttpContextAccessor, IConfiguration config)
+        {
             _logger = logger;
             httpContextAccessor = HttpContextAccessor;
-      
+            _config = config;
         }
 
         [AllowAnonymous]
         public IActionResult Index()
-        
         {
             var currentuser = GetCurrentUser();
             if (currentuser != null)
             {
-                return Redirect("Account/ReponseMainPage");
+                return Redirect("Account/MainPage");
             }
             //if (currentuser != null)
             //{
@@ -58,7 +60,7 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
             if (HttpContext != null)
             {
                 var session = HttpContext.Session;
-                string key_access = "access";
+                string key_access = _config.GetValue<string>("Access_session");
                 string json = session.GetString(key_access);
                 if (json != null)
                 {

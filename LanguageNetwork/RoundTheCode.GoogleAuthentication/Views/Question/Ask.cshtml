@@ -1,155 +1,92 @@
-﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+﻿@{ Layout = "~/Views/Shared/LayoutPar.cshtml"; }
 
-<link href="~/css/css/ask.css" rel="stylesheet" />
-<script src="~/js/jquery-3.6.0.js"></script>
-<!-- include summernote css/js -->
-<link href="~/summernote/summernote-bs4.css" rel="stylesheet" />
-<script src="~/summernote/summernote-bs4.js"></script>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="~/tag/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link href="~/tag/assets/app.css" rel="stylesheet" />
+    <script src="~/tag/dist/bootstrap-tagsinput.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="~/css/css/ask.css" rel="stylesheet" />
+</head>
+
 <!---->
-<link href="~/macOS-Growl-Notification-Plugin-jnoty/jnoty.css" rel="stylesheet" />
-<script src="~/macOS-Growl-Notification-Plugin-jnoty/jnoty.js"></script>
+
 <!---tag-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link href="~/tag/dist/bootstrap-tagsinput.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
-<link href="~/tag/assets/app.css" rel="stylesheet" />
-<script src="~/tag/dist/bootstrap-tagsinput.js"></script>
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
-
-<!-- contact info -->
-<!-- footer -->
-
-
-
-<div id="yui-main">
-    <div class="yui-b">
-        <div class="yui-gc">
-            <div class="yui-u first">
-                <div class="content">
-                    <div class="row mt-5-1">
-                        <p class="textheader_v1 fs-headline1"> Ask a public question</p>
-                    </div>
-                    <div class="row">
-                        <ul>
-                            <li>
-                                <b>Title</b>
-                            </li>
-                            <li class="subtext">
-                                Be specific and imagine you’re asking a question to another person
-                            </li>
-                            <li>
-                                <input id="title" name="title" type="text" maxlength="300" tabindex="100"
-                                       placeholder="e.g. How to say 'I love you' in Spanish?"
-                                       class="s-input js-post-title-field" value="" data-min-length="15" data-max-length="150" autocomplete="off" required>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="row">
-                        <ul>
-                            <li>
-                                <b>Body</b>
-                            </li>
-                            <li class="subtext">
-                                Include all the information someone would need to answer your question
-                            </li>
-                            <li>
-                                <textarea id="questionbody">Here is typing...</textarea>
-
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="row">
-                        <ul>
-                            <li>
-                                <b>Tags</b>
-                            </li>
-                            <li class="subtext">
-                                Add up to 5 tags to describe what your question is about
-                            </li>
-                            <li>
-                                <input type="text" value="" data-role="tagsinput" id="taginput" class="s-input js-tageditor-replacing"
-                                       placeholder="e.g. (china grammar verb)" />
-                                @*<input type="text" autocomplete="off" tabindex="103" placeholder="e.g. (spring vba python)"
-                                    id="tageditor-replacing-tagnames--input" class="s-input js-tageditor-replacing" style="width: 100%" data-role="tagsinput" required>*@
-                            </li>
-                        </ul>
 
 
 
 
-                    </div>
-                    <section class="formquestion">
-                        <div class="gap no-top">
-                            <div class="container-fluid">
-                                <div class="row buttonquestion">
+<div class="col-md-3 sidebarleft">
 
-                                    <button id="btnQuestion" class="s-btn__primary">Post your question</button>
+</div>
+<div class="col-md-6 centerlayout">
+    <div class="row">
+        <b class="textheaderask"> Ask a public question</b>
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                <b>Title</b>
+            </li>
+            <li class="subtext">
+                Be specific and imagine you’re asking a question to another person
+            </li>
+            <li>
+                <input id="title" name="title" type="text" maxlength="300" tabindex="100"
+                       placeholder="e.g. How to say 'I love you' in Spanish?"
+                       class="s-input js-post-title-field" value="" data-min-length="15" data-max-length="150" autocomplete="off" required>
+            </li>
+        </ul>
 
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                <b>Body</b>
+            </li>
+            <li class="subtext">
+                Include all the information someone would need to answer your question
+            </li>
+            <li>
+                @*<textarea id="questionbody">Here is typing...</textarea>*@
+                <div class="wmd-panel">
+                    <div id="wmd-button-bar"></div>
+                    <label for="answer_question_body" class="required"></label>
+                    <textarea class="wmd-input" id="ask_question_body"></textarea>
                 </div>
-            </div>
-            <div class="yui-u">
-                <div class="content suggestcontent">
-                    <div class="ulsuggest">
-                        <button class="btntoggle">
-                            <img src="https://cdn.sstatic.net/Img/list-1.svg?v=e8dd475ba207" width="16" height="16" alt="1.">
-                            <b class="headersuggest">
-                                Summarize the problem
-                            </b>
-                            @*<svg aria-hidden="true" class="svg-icon iconArrowUpAlt " width="18" height="18" viewBox="0 0 18 18"><path d="M16.01 11.62l-1.4 1.4L9 7.45l-5.59 5.59-1.4-1.41 7-7 7 7z"></path></svg>
-                            <svg aria-hidden="true" class="svg-icon iconArrowDownAlt " width="18" height="18" viewBox="0 0 18 18"><path d="M16.01 6.43l-1.4-1.41L9 10.6 3.42 5l-1.4 1.42 7 7 7-7z"></path></svg>*@
-                        </button>
-                        <p class="textappend">
-                            <ul>
-                                <li class="licontent">
-                                    Include details about your goal
-                                </li >
-                                <li  class="licontent"> Describe expected and actual results</li>
-                                <li class="licontent">Include any error messages</li>
-                            </ul>
 
-                        </p>
-                    </div>
-                    <div class="ulsuggest_v1">
-                        <button class="btntoggle_v1">
-                            <img src="https://cdn.sstatic.net/Img/list-2.svg?v=9382fc2c3631" width="16" height="16" alt="2.">
-                            <b class="headersuggest_v1">
-                                Describe what you’ve tried
-                            </b>
-                            @*<svg aria-hidden="true" class="svg-icon iconArrowUpAlt_v1" width="18" height="18" viewBox="0 0 18 18"><path d="M16.01 11.62l-1.4 1.4L9 7.45l-5.59 5.59-1.4-1.41 7-7 7 7z"></path></svg>
-                            <svg aria-hidden="true" class="svg-icon iconArrowDownAlt_v1" width="18" height="18" viewBox="0 0 18 18"><path d="M16.01 6.43l-1.4-1.41L9 10.6 3.42 5l-1.4 1.42 7 7 7-7z"></path></svg>*@
-                        </button>
-                        <p class="textappend_v1">
-                             <ul>
-                                 <li>
-                                     Show what you’ve tried and tell us what you found (on this site or elsewhere) and why it didn’t meet your needs. You can get better answers when you provide research.
-                                 </li>
-                             </ul>
-                        </p>
-                    </div>
-                    <div class="ulsuggest_v2">
-                        <button class="btntoggle_v2">
-                            <img src="https://cdn.sstatic.net/Img/list-3.svg?v=323a95564232" width="16" height="16" alt="3.">
-                            <b class="headersuggest_v2">
-                                Show some code
-                            </b>
-                            @*<svg aria-hidden="true" class="svg-icon iconArrowUpAlt_v2" width="18" height="18" viewBox="0 0 18 18"><path d="M16.01 11.62l-1.4 1.4L9 7.45l-5.59 5.59-1.4-1.41 7-7 7 7z"></path></svg>
-                            <svg aria-hidden="true" class="svg-icon iconArrowDownAlt_v2" width="18" height="18" viewBox="0 0 18 18"><path d="M16.01 6.43l-1.4-1.41L9 10.6 3.42 5l-1.4 1.42 7 7 7-7z"></path></svg>*@
-                        </button>
-                        <p class="textappend_v2">Hiya</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+
+
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                <b>Tags</b>
+            </li>
+            <li class="subtext">
+                Add up to 5 tags to describe what your question is about
+            </li>
+            <li>
+                <input type="text" value="" data-role="tagsinput" id="taginput" class="s-input js-tageditor-replacing"
+                       placeholder="e.g. (china grammar verb)" />
+            </li>
+        </ul>
+    </div>
+    <div class="row mt-5">
+        <button id="btnpublishquestion">
+            <span>Publish question</span>
+        </button>
     </div>
 </div>
+<div class="col-md-3"></div>
+
 <script>
     $(document).ready(function () {
         $('.bootstrap-tagsinput').find('input').css('font-size', '15px');
@@ -235,7 +172,7 @@
             }
         });
 
-    });</script>
+    })</script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
 <script src="~/js/Ask.js"></script>
