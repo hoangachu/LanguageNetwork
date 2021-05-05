@@ -62,4 +62,5 @@ $(document).ready(function() {
     editor.run();
     
     $('.wmd-input:not(.processed)').TextAreaResizer();    
+ 
 });

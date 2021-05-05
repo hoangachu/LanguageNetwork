@@ -142,3 +142,219 @@ svg:hover {
     position: fixed;
     width: 100%
 }
+
+@media all and (min-height: 320px) {
+
+    #footer {
+        position: unset !important;
+    }
+}
+@media all and (min-height: 600px) {
+    #footer {
+        position: unset !important;
+    }
+    svg {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+    }
+
+}
+
+@media all and (min-height: 750px) {
+
+
+    #footer {
+        position: absolute !important;
+    }
+
+    .logo {
+        display: none;
+    }
+    svg {
+        margin-left: 5px !important;
+    }
+
+}
+@media all and (min-height: 1000px) {
+
+    nav {
+        display: none !important;
+    }
+
+    .logo {
+        display: block !important;
+    }
+
+    #footer {
+        position: fixed;
+    }
+
+    .logo {
+        /*  display: none;*/
+        margin-top: 0px !important;
+    }
+
+    .avatauser {
+        height: max-content !important;
+    }
+
+    .img_respon {
+        height: max-content !important;
+    }
+
+    svg {
+        margin-left: 5px !important;
+    }
+
+    .centerheader {
+        margin-left: 20px;
+        display: contents !important;
+    }
+
+    .avatauser {
+        height: 30px !important;
+        width: 50px !important;
+        float: left !important;
+        margin-left: 4px !important;
+    }
+
+    .s-input-icon {
+        width: fit-content !important;
+        height:15px !important;
+    }
+
+    .ps-relative {
+        width: fit-content !important;
+        display: flex !important;
+    }
+    .sidebarright {
+        width: 24% !important;
+    }
+    .divtopquestion {
+        white-space: pre;
+    }
+    .topquestion {
+        font-size: xx-large;
+        padding: 16px;
+    }
+}
+@media all and (min-height: 1200px) {
+    #footer {
+        position: unset;
+    }
+  
+}
+@media all and (min-width: 320px) {
+
+    #footer {
+        position: unset !important;
+    }
+    svg {
+        margin-left: 5px;
+    }
+}
+@media all and (min-width: 350px) and (min-height : 740px ) {
+
+    #footer {
+        position: absolute !important;
+    }
+
+    svg {
+        margin-left: 5px;
+    }
+}
+@media all and (min-width: 600px) {
+    #footer {
+        position: absolute !important;
+    }
+}
+
+@media all and (min-width: 750px) {
+
+
+    #footer {
+        position: absolute !important;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    svg {
+        margin-left: 5px !important;
+    }
+}
+
+@media all and (min-width: 1000px) {
+
+    nav {
+        display: none !important;
+    }
+
+    .logo {
+        display: block !important;
+    }
+
+    #footer {
+        position: fixed;
+    }
+
+    .logo {
+        /*  display: none;*/
+        margin-top: 0px !important;
+    }
+
+    .avatauser {
+        height: max-content !important;
+    }
+
+    .img_respon {
+        height: max-content !important;
+    }
+
+    svg {
+        margin-left: 5px !important;
+    }
+
+    .centerheader {
+        margin-left: 20px;
+        display: contents !important;
+    }
+
+    .avatauser {
+        height: 30px !important;
+        width: 50px !important;
+        float: left !important;
+        margin-left: 4px !important;
+    }
+    .s-input-icon.s-input-icon__search, .s-input-icon.s-input-icon__creditcard {
+        width: fit-content !important;
+        height: 15px !important;
+    }
+   
+
+    .ps-relative {
+        width: fit-content !important;
+        display: flex !important;
+    }
+
+    .sidebarright {
+        width: 24% !important;
+    }
+
+    .divtopquestion {
+        white-space: pre;
+    }
+
+    .topquestion {
+        font-size: xx-large;
+        padding: 16px;
+    }
+}
+
+@media all and (min-width: 1280px) {
+    #footer {
+        position: unset;
+    }
+}

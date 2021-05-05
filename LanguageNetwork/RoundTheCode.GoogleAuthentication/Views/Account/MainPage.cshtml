@@ -5,11 +5,17 @@
 
 
 <link href="~/css/css/main_page.css" rel="stylesheet" />
-
+<script src="~/js/js_login/jquery.min.js"></script>
 <link href="~/css/css/radiotoggle.css" rel="stylesheet" />
+<link href="~/Dialog-Modal/src/css/dialogify.css" rel="stylesheet" />
+<script src="~/Dialog-Modal/src/js/dialogify.js"></script>
+<script src="~/Dialog-Modal/src/js/dialog-polyfill.js"></script>
+<script src="~/Dialog-Modal/src/js/ResizeSensor.js"></script>
+<script src="~/Dialog-Modal/dist/dialogify.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+<script src="~/js/Ask.js"></script>
 
-
-<div class="col-md-2"></div>
+<div class="col-md-2 presidebarleft"></div>
 <div class="col-md-2 sidebarleft">
     <ol>
         <li class="lisidebar activesidebar">
@@ -44,32 +50,34 @@
             </ol>
         </li>
         <li class="lisidebar">
-            <a class="asidebar">TEAMS</a>
+            <a class="asidebar"><span>Groups</span></a>
+        </li>
+
+        @*statiscal*@
+    </ol>
+    <ol class="olstatistic">
+        <li class="w-50 listatistic listatisticquestion">
+            <a class="astatistic"><span class="txtquestion">Questions</span></a>
+            <a class="astatistic"><span class="numquestion">31</span></a>
+        </li>
+        <li class="w-50 listatistic listatisticanswers">
+            <a class="astatistic"><span class="txtanswer">Questions</span></a>
+            <a class="astatistic"><span class="numanswer">31</span></a>
         </li>
     </ol>
-    <div class="row mt-5 statical">
-        <div class="col-sm-12 col-md-6 divstatistical" style="">
-            <ul class="ustatistical" style="">
-                <li class="listatical">
-                    <b style="" class="txtquestion">Questions</b>
-                </li>
-                <li class="statiscalquestionnum">
-                   <b style="" class="numquestion">21</b>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-6 divstatistical" style="border:1px inset;background-color:white">
-            <ul class="ustatistical" style="padding: 23px 30px;">
-                <li class="listatical">
-                    <b style="" class="txtanswer">Answers</b>
-                </li>
-                <li class="statiscalquestionnum">
-                    <b style="" class="numanswer">21</b>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <ol class="olstatistic">
+        <li class="w-50 listatistic listatisticbestanswer">
+            <a class="astatistic"><span class="txtbestanswer">Best Answers</span></a>
+            <a class="astatistic"><span class="numbestanswer">31</span></a>
+        </li>
+        <li class="w-50 listatistic listuser">
+            <a class="astatistic"><span class="txtuser">Users</span></a>
+            <a class="astatistic"><span class="numuser">31</span></a>
+        </li>
+    </ol>
+
 </div>
+
 <div class="col-md-5 centerlayout">
     <div class="row">
         <div class="col-md-5 divtopquestion"><span class="topquestion">Top Questions</span></div>
@@ -108,7 +116,7 @@
                     <div class="col-md-6 datetimespan" style="">@item.QuestionTimeAbout</div>
                     <div class="col-md-3 " style="color:#bbc0c4;cursor:pointer"></div>
                 </div>
-                <div class="row rowtitle" >
+                <div class="row rowtitle">
                     <h3 class="col-md-12 user">
                         <a class="aquestion">@item.QuestionTitle</a>
                     </h3>
@@ -175,7 +183,10 @@
 
 
 </div>
-<div class="col-md-1"></div>
+<div class="col-md-1 aftersiderightbar"></div>
+<div id="AskBody" style="display:none">
+    @Html.Partial("Ask.cshtml")
+</div>
 
 <script src="~/js/main_page.js"></script>
 <script src="~/js/tooltipSetting.js"></script>
