@@ -1,7 +1,10 @@
 // needs Markdown.Converter.js at the moment
 
 (function () {
-
+    $('#wmd-image-button').click(function () {
+        debugger
+        alert(1);
+    })
     var util = {},
         position = {},
         ui = {},
@@ -90,7 +93,7 @@
     // - run() actually starts the editor; should be called after all necessary plugins are registered. Calling this more than once is a no-op.
     // - refreshPreview() forces the preview to be updated. This method is only available after run() was called.
     Markdown.Editor = function (markdownConverter, idPostfix, options) {
-        
+        debugger
         options = options || {};
 
         if (typeof options.handler === "function") { //backwards compatible behavior
@@ -2227,6 +2230,9 @@
         chunk.selection = "";
         chunk.skipLines(2, 1, true);
     }
-
-
+    $('#wmd-image-button').click(function () {
+        debugger
+        alert(1);
+    })
+  
 })();

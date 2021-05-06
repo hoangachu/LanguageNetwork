@@ -21,17 +21,26 @@ using Newtonsoft.Json;
 
 namespace RoundTheCode.GoogleAuthentication.Controllers
 {
+    public interface IAccountController
+    {
+
+        void SaveUserSession(User User);
+
+    }
+    //[Authorize]
     [AllowAnonymous, Route("account")]
-    public class AccountController : Controller
+    public class AccountController : BaseController, IAccountController
     {
         private readonly IConfiguration _config;
-
-        //Login with facebook,google
-        public AccountController(IConfiguration configuration)
+        private IHomeController _ihomeController;
+        private readonly IHttpContextAccessor _httpcontextaccessor;
+        public AccountController(IHttpContextAccessor httpcontextaccessor, IConfiguration configuration, IHomeController ihomeController) : base(httpcontextaccessor, configuration)
         {
+            _httpcontextaccessor = httpcontextaccessor;
             _config = configuration;
-            //context = Context;
+            _ihomeController = ihomeController;
         }
+        //Login with facebook,google
         [Route("google-login")]
         public IActionResult GoogleLogin()
         {
@@ -117,7 +126,7 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
                     try
                     {
                         User = GetUserByUserName(user);
-                        if (user == null)
+                        if (user == null || User.UserID < 1)
                         {
                             return NoContent();
                         }
@@ -257,6 +266,17 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
         [Route("MainPage")]
         public ActionResult MainPage()
         {
+            var session = _httpcontextaccessor.HttpContext.Session;
+            string key_access = _config.GetValue<string>("Access_session");
+            string json = session.GetString(key_access);
+            if (json != null)
+            {
+                var user = JsonConvert.DeserializeObject<User>(json);
+                if (user != null)
+                {
+                    ViewBag.CurrentUser = 1;
+                }
+            }
             List<Question> listQuestion = new List<Question>();
             using (SqlConnection con = new SqlConnection(Startup.connectionString))
             {

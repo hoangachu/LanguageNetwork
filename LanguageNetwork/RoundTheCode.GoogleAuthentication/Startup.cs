@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LanguageNetwork.Controllers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -102,8 +103,13 @@ namespace RoundTheCode.GoogleAuthentication
             });
 
             services.AddHttpContextAccessor();
-       
+        
             services.AddControllersWithViews();
+            services.AddScoped<IHomeController, HomeController>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
+            services.AddScoped<IAccountController, AccountController>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -127,7 +133,7 @@ namespace RoundTheCode.GoogleAuthentication
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseCookiePolicy();
-
+            
             app.UseSession();
 
             app.UseEndpoints(endpoints =>

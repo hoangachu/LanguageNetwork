@@ -142,9 +142,17 @@ svg:hover {
     position: fixed;
     width: 100%
 }
-
+.fa-sign-in:before {
+     color: blueviolet;
+}
+.spanshortsign{
+    color:black;
+}
+.el-button {
+    background-color: white;
+    border: none;
+}
 @media all and (min-height: 320px) {
-
     #footer {
         position: unset !important;
     }

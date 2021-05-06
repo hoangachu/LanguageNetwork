@@ -1,0 +1,109 @@
+﻿@{ Layout = "~/Views/Shared/LayoutPar.cshtml"; }
+
+<head>
+    @*<script src="~/notify/notify.js"></script>
+    <link href="~/macOS-Growl-Notification-Plugin-jnoty/jnoty.css" rel="stylesheet" />
+    <script src="~/macOS-Growl-Notification-Plugin-jnoty/jnoty.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="~/tag/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link href="~/tag/assets/app.css" rel="stylesheet" />
+    <script src="~/tag/dist/bootstrap-tagsinput.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="~/css/css/ask.css" rel="stylesheet" />
+    <script src="~/markdown/markdown/Markdown.js"></script>
+    <script src="~/markdown/markdown/Markdown.Converter.js"></script>
+    <script src="~/markdown/markdown/Markdown.Editor.js"></script>
+    <script src="~/markdown/markdown/Markdown.Sanitizer.js"></script>
+    <script src="~/markdown/markdown/resizer.js"></script>
+    <link href="~/markdown/css/wmd.css" rel="stylesheet" />*@
+</head>
+
+<!---->
+<!---tag-->
+
+
+
+
+<div class="col-md-3 sidebarleft">
+
+</div>
+<div class="col-md-6 centerlayout">
+    @*<div class="row">
+            <b class="textheaderask"> Ask a public question</b>
+        </div>*@
+    <div class="row">
+        <ul>
+            <li>
+                <b>Title</b>
+            </li>
+            <li class="subtext">
+                Be specific and imagine you’re asking a question to another person
+            </li>
+            <li>
+                <input id="title" name="title" type="text" maxlength="300" tabindex="100"
+                       placeholder="e.g. How to say 'I love you' in Spanish?"
+                       class="s-input js-post-title-field" value="" data-min-length="15" data-max-length="150" autocomplete="off" required>
+            </li>
+        </ul>
+
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                <b>Body</b>
+            </li>
+            <li class="subtext">
+                Include all the information someone would need to answer your question
+            </li>
+            <li>
+                @*<textarea id="questionbody">Here is typing...</textarea>*@
+                <div class="wmd-panel">
+                    <div id="wmd-button-bar"></div>
+                    <label for="answer_question_body" class="required"></label>
+                    <textarea class="wmd-input" id="ask_question_body"></textarea>
+                </div>
+
+                <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+
+
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                <b>Tags</b>
+            </li>
+            <li class="subtext">
+                Add up to 5 tags to describe what your question is about
+            </li>
+            <li>
+                <input type="text" value="" data-role="tagsinput" id="taginput" class="s-input js-tageditor-replacing"
+                       placeholder="e.g. (china grammar verb)" />
+            </li>
+        </ul>
+    </div>
+    @*<div class="row mt-5">
+            <button id="btnpublishquestion">
+                <span>Publish question</span>
+            </button>
+        </div>*@
+</div>
+<div class="col-md-3"></div>
+
+@*<script>
+        $(document).ready(function () {
+            //$('.bootstrap-tagsinput').find('input').css('font-size', '15px');
+            //$(document).keyup(function (event) {
+            //    if (event.which === 13 || event.keyCode === 13) {
+
+            //    }
+            //});
+        })</script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+    <script src="~/js/Ask.js"></script>*@

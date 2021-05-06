@@ -2,18 +2,23 @@
 @{
     Layout = "~/Views/Shared/LayoutPar.cshtml";
 }
+<head>
+    <link href="~/css/css/main_page.css" rel="stylesheet" />
+    <script src="~/js/js_login/jquery.min.js"></script>
+    <link href="~/css/css/radiotoggle.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <script src="~/js/Ask.js"></script>
+    <script src="~/tag/dist/bootstrap-tagsinput.js"></script>
+    <link href="~/tag/dist/bootstrap-tagsinput.css" rel="stylesheet" />
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link href="~/css/css/ask.css" rel="stylesheet" />
+    <script src="~/js/Ask.js"></script>
+</head>
 
-<link href="~/css/css/main_page.css" rel="stylesheet" />
-<script src="~/js/js_login/jquery.min.js"></script>
-<link href="~/css/css/radiotoggle.css" rel="stylesheet" />
-<link href="~/Dialog-Modal/src/css/dialogify.css" rel="stylesheet" />
-<script src="~/Dialog-Modal/src/js/dialogify.js"></script>
-<script src="~/Dialog-Modal/src/js/dialog-polyfill.js"></script>
-<script src="~/Dialog-Modal/src/js/ResizeSensor.js"></script>
-<script src="~/Dialog-Modal/dist/dialogify.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
-<script src="~/js/Ask.js"></script>
 
 <div class="col-md-2 presidebarleft"></div>
 <div class="col-md-2 sidebarleft">
@@ -82,7 +87,7 @@
     <div class="row">
         <div class="col-md-5 divtopquestion"><span class="topquestion">Top Questions</span></div>
         <div class="col-md-7 divbuttonask">
-            <button class="btnAsk"><span>Ask Question</span></button>
+            <button class="btnAsk" data-toggle="modal" data-target="#myModal"><span>Ask Question</span></button>
         </div>
     </div>
     <div class="row">
@@ -184,9 +189,30 @@
 
 </div>
 <div class="col-md-1 aftersiderightbar"></div>
-<div id="AskBody" style="display:none">
+<div class="modal fade" id="myModal" role="dialog">
     @Html.Partial("Ask.cshtml")
 </div>
 
 <script src="~/js/main_page.js"></script>
 <script src="~/js/tooltipSetting.js"></script>
+<script type="text/javascript">
+    document.getElementById("wmd-image-button").addEventListener("click", function () {
+        alert(1);
+    });
+    $('#taginput').change(function () {
+        debugger
+        if ($('.bootstrap-tagsinput').find('span').length >= 2 && $('.bootstrap-tagsinput').find('span').length <= 10) {
+
+        }
+        else if ($('.bootstrap-tagsinput').find('span').length > 10) {
+            $('.bootstrap-tagsinput').find('span').last().remove();
+            $('.bootstrap-tagsinput').find('span.tag.label.label-info').last().remove();
+            ErrorMessage('Do not enter more than 5 tags');
+        }
+        else {
+
+            /* ErrorMessage('error');*/
+        }
+        $('.bootstrap-tagsinput').find('input').attr('placeholder', '');
+    });
+</script>

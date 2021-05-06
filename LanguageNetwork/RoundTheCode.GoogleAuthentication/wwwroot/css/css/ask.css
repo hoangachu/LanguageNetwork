@@ -481,21 +481,12 @@ img{
 #btnpublishquestion :hover{
     background-color:#115dc6
 }
-@media only screen and (max-width: 768px) {
-    .wmd-input {
-        width: 465px;
-    }
-    .grippie {
-        width: 465px;
-    }
-    #btnpublishquestion {
-        width: 50%;
-        border: none;
-        color: white;
-        background-color: #0095ff;
-        height: 40px;
-        margin-left: 7px;
-    }
+.modal-dialog {
+    display: initial;
+}
+.modal-content {
+    margin: auto;
+    width: 75%;
 }
 
 /*Mobile first*/
@@ -522,7 +513,28 @@ img{
         margin-left: 7px;
     }
 }
+@media only screen and (max-width: 768px) {
+    .wmd-input {
+        width: 465px;
+    }
 
+    .grippie {
+        width: 465px;
+    }
+
+    #btnpublishquestion {
+        width: 50%;
+        border: none;
+        color: white;
+        background-color: #0095ff;
+        height: 40px;
+        margin-left: 7px;
+    }
+
+    .modal-content {
+        width: fit-content !important;
+    }
+}
 /* For Tablet With Horizontal Screen */
 @media all and (min-width: 1024px) {
     .wmd-input {
@@ -546,13 +558,17 @@ img{
 /* For Desktop */
 @media all and (min-width: 1280px) {
     .wmd-input {
-        width: 700px;
+        width: 508px !important;
     }
-
+    .modal-content {
+        width: 50%;
+    }
     .grippie {
-        width: 700px;
+        width: 508px;
     }
-
+    #wmd-preview {
+        width: 508px;
+    }
     #btnpublishquestion {
         width: 60%;
         border: none;
