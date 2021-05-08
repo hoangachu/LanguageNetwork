@@ -108,6 +108,7 @@ namespace RoundTheCode.GoogleAuthentication
             services.AddScoped<IHomeController, HomeController>();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
             services.AddScoped<IAccountController, AccountController>();
+            services.AddScoped<IQuestionController, QuestionController>();
 
 
         }

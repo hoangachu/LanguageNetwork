@@ -1,6 +1,34 @@
 ﻿"use strict";
+
+
 (function () {
-   
+    $('#btnpublish').click(function () {
+        debugger
+        var title = $('#title').val();
+        var body = $('#wmd-preview').html();
+        var labelinfo = document.getElementsByClassName('label-info');
+        var listtag = '';
+        for (var index = 0; index < labelinfo.length; index++) {
+            if (index == 0) {
+                listtag += labelinfo[index].innerText
+            } else { listtag += ("," + labelinfo[index].innerText) }
+        }
+        if (title == "" || title == null) { DangerMessage("Tiêu đề chưa được nhập"); return }
+        if (body == "" || body == null) { DangerMessage("Nội dung chưa được nhập"); return }
+        $.ajax({
+            url: 'RegistQuestion',
+            data: { title: title, body: body, tag: listtag },
+            success: function () {
+                $('#btncancel').click();
+                SuccessMessage("Đăng câu hỏi thành công");
+                setTimeout(function () {
+
+                    window.location.href = window.location.href;
+                }, 2000);
+            }
+
+        });
+    });
     //$('input[name=switch-two]').on("click",function () {
 
     //});
@@ -39,7 +67,6 @@
 })();
 
 function Setactive(id) {
-    debugger
     $('.switch-field').find('label').removeClass('labelactive');
     $('.switch-field').find('label.lbl' + id).addClass('labelactive');
 }
@@ -71,8 +98,8 @@ window.onload = function () {
         dialogify.showModal();
         $('.wmd-prompt-dialog').css('display', 'none');
     });
+
  
-   
 };
 
 function preview() {

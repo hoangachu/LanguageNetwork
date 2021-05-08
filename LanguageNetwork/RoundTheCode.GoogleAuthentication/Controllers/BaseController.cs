@@ -12,6 +12,7 @@ namespace LanguageNetwork.Controllers
 {
     public class BaseController : Controller
     {
+        public static int UserID;
         
         public BaseController(IHttpContextAccessor _httpcontextaccessor, IConfiguration _config)
         {
@@ -26,6 +27,7 @@ namespace LanguageNetwork.Controllers
                     var user = JsonConvert.DeserializeObject<User>(json);
                     if (user != null)
                     {
+                        UserID = user.UserID;
                         ViewBag.CurrentUser = 1;
                     }
                 }

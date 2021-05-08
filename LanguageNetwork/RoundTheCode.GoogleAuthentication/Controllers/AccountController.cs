@@ -32,13 +32,15 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
     public class AccountController : BaseController, IAccountController
     {
         private readonly IConfiguration _config;
-        private IHomeController _ihomeController;
+        private IQuestionController _iQuestionController;
+        private IHomeController _ihomeController; 
         private readonly IHttpContextAccessor _httpcontextaccessor;
-        public AccountController(IHttpContextAccessor httpcontextaccessor, IConfiguration configuration, IHomeController ihomeController) : base(httpcontextaccessor, configuration)
+        public AccountController(IHttpContextAccessor httpcontextaccessor, IConfiguration configuration, IHomeController ihomeController, IQuestionController IQuestionController) : base(httpcontextaccessor, configuration)
         {
             _httpcontextaccessor = httpcontextaccessor;
             _config = configuration;
             _ihomeController = ihomeController;
+            _iQuestionController = IQuestionController;
         }
         //Login with facebook,google
         [Route("google-login")]
@@ -323,6 +325,11 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
                 return View(listQuestion);
             }
 
+        }
+        [Route("RegistQuestion")]
+        public ActionResult RegistQuestion(string title, string body, string tag)
+        {
+            return _iQuestionController.RegistQuestion(title, body, tag);
         }
     }
 }
