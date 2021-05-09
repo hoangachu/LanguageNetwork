@@ -1,0 +1,81 @@
+﻿.main-nav {
+    padding: 0px 110px !important;
+}
+.mh-head .mh-form .fa {
+    color: #ccc;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 20%;
+  /*  -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);*/
+    transform: translateY(-50%);
+}
+.mobile-nav-toggle {
+    position: fixed;
+    right: 0;
+    z-index: 9998;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    transition: all 0.4s;
+    outline: none !important;
+    line-height: 1;
+    cursor: pointer;
+    text-align: right;
+    top: 25px;
+}
+.mh-head .mh-form input {
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 26px;
+    display: block;
+    box-sizing: border-box;
+    height: 26px;
+    width: 80%;
+    padding: 0 10px;
+}
+
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+    .mh-head .mh-form .fa {
+        color: #ccc;
+        text-align: center;
+        line-height: 40px;
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        right: 20%;
+        /*  -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);*/
+        transform: translateY(-50%);
+    }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px) {
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+    .main-nav {
+        padding: 0px 10px !important;
+    }
+}
+
+@media screen and (min-width : 1200px) {
+    .main-nav {
+        padding: 0px 110px !important;
+    }
+
+}
+

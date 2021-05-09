@@ -79,5 +79,11 @@ namespace RoundTheCode.GoogleAuthentication.Controllers
             
             return null;
         }
+        [AllowAnonymous]
+        public ActionResult Feed()
+        {
+            return View();
+        }
+
     }
 }

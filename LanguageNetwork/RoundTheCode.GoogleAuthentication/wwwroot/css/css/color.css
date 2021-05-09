@@ -167,7 +167,9 @@ a.addnewforum,
 	.single-btn > li > a.active {
 		border-color: #6f2ea1;
 	}
-
+#topcontrol{
+	display:none !important;
+}
 #nprogress .spinner-icon {
 	border-left-color: #6f2ea1;
 }

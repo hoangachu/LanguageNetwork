@@ -2,7 +2,7 @@
 @{
     Layout = "~/Views/Shared/LayoutPar.cshtml";
 }
-<head>
+<!--<head>
     <link href="~/css/css/main_page.css" rel="stylesheet" />
     <script src="~/js/js_login/jquery.min.js"></script>
     <link href="~/css/css/radiotoggle.css" rel="stylesheet" />
@@ -56,10 +56,9 @@
         </li>
         <li class="lisidebar">
             <a class="asidebar"><span>Groups</span></a>
-        </li>
-
-        @*statiscal*@
-    </ol>
+        </li>-->
+@*statiscal*@
+<!--</ol>
     <ol class="olstatistic">
         <li class="w-50 listatistic listatisticquestion">
             <a class="astatistic"><span class="txtquestion">Questions</span></a>
@@ -108,50 +107,43 @@
     <div class="row">
         <br />
     </div>
-    @foreach (var item in Model)
+    foreach (var item in Model)
     {
         <div class="row mainpost mt-1">
             <div class="col-md-1 avatardiv">
-                <img src="@item.User.ProfileImg" class="avatar" />
+                <img src="item.User.ProfileImg" class="avatar" />
             </div>
 
             <div class="col-md-10 maininfoquestion">
                 <div class="row">
-                    <a class="col-md-3 user"> @item.User.UserName</a>
-                    <div class="col-md-6 datetimespan" style="">@item.QuestionTimeAbout</div>
+                    <a class="col-md-3 user"> item.User.UserName</a>
+                    <div class="col-md-6 datetimespan" style="">item.QuestionTimeAbout</div>
                     <div class="col-md-3 " style="color:#bbc0c4;cursor:pointer"></div>
                 </div>
                 <div class="row rowtitle">
                     <h3 class="col-md-12 user">
-                        <a class="aquestion">@item.QuestionTitle</a>
-                    </h3>
+                        <a cl
                 </div>
-                <div class="row divinfo">
-                    @foreach (var i in item.listTag)
-                    {
-                        <a href="#" class="post-tag" title="" rel="tag" id="@i.TagID">@i.TagText</a>
+
                     }
                     <a class="info infoview" title="Views: 2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                             <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                        </svg>
-                        <span>@item.View</span>
-                    </a>
+
 
                     <a class="info infovote" title="Votes: 2">
                         <i class="fad fa-person-booth"></i>
-                        <span>@item.Vote</span>
+
                     </a>
 
                     <a class="info infocomment" title="Comments: 1">
                         <i class="fal fa-comments"></i>
-                        <span>@item.Comment</span>
+
                     </a>
 
                     <a class="info info_v1" title="Likes : 0">
                         <i class="fas fa-thumbs-up "></i>
-                        <span class="">@item.Like</span>
+
                     </a>
 
                 </div>
@@ -160,11 +152,11 @@
             </div>
         </div>
         <hr class="new1" />
-    }
-    @*<a href="#" class="post-tag" title="" rel="tag">merge</a>*@
-</div>
+    }-->
+@*<a href="#" class="post-tag" title="" rel="tag">merge</a>*@
+<!--</div>-->
 <!--side bar right-->
-<div class="col-md-2 mt-2 sidebarright">
+<!--<div class="col-md-2 mt-2 sidebarright">
 
     <div class="lisiderighthead">  <span class="spanblog">The Blog</span> </div>
 
@@ -190,7 +182,7 @@
 </div>
 <div class="col-md-1 aftersiderightbar"></div>
 <div class="modal fade" id="myModal" role="dialog">
-    @Html.Partial("Ask.cshtml")
+    Html.Partial("Ask.cshtml")
 </div>
 
 <script src="~/js/main_page.js"></script>
@@ -201,11 +193,11 @@
         debugger
         if ($('.bootstrap-tagsinput').find('span').length >= 2 && $('.bootstrap-tagsinput').find('span').length <= 10) {
 
+            ErrorMessage('Do not enter more than 5 tags');
         }
         else if ($('.bootstrap-tagsinput').find('span').length > 10) {
             $('.bootstrap-tagsinput').find('span').last().remove();
             $('.bootstrap-tagsinput').find('span.tag.label.label-info').last().remove();
-            ErrorMessage('Do not enter more than 5 tags');
         }
         else {
 
@@ -213,5 +205,141 @@
         }
         $('.bootstrap-tagsinput').find('input').attr('placeholder', '');
     });
-  
+
+</script>-->
+<!-- #intro -->
+@*<section id="intro" class="clearfix">*@
+@*<div class="container">
+
+        <div class="intro-img">
+            <img src="img/intro-img.svg" alt="" class="img-fluid">
+        </div>
+
+        <div class="intro-info">
+            <h2>We provide<br><span>solutions</span><br>for your business!</h2>
+            <div>
+                <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                <a href="#services" class="btn-services scrollto">Our Services</a>
+            </div>
+        </div>
+
+    </div>*@
+@*</section>*@
+<!-- #intro -->
+<script src="~/toolbar/jquery.toolbar.js"></script>
+<link href="~/toolbar/jquery.toolbar.css" rel="stylesheet" />
+<script src="~/toolbar/jquery.toolbar.min.js"></script>
+<link href="~/css/css/main_page.css" rel="stylesheet" />
+<script src="~/js/tipped-4.7.0/dist/js/tipped.js"></script>
+<link href="~/js/tipped-4.7.0/dist/css/tipped.css" rel="stylesheet" />
+<script src="~/js/tipped-4.7.0/dist/js/tipped.min.js"></script>
+<script src="~/js/tooltipSetting.js"></script>
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/bootstrap/js/bootstrap.js"></script>
+<script src="~/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="~/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/js/jquery-3.6.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<script src="~/notify/notify.js"></script>
+
+
+
+<!--Main-->
+<section id="services" class="section-bg mt-5">
+    <div class="container-fluid">
+
+        @*<header class="section-header">
+                <h3>Services</h3>
+                <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+            </header>*@
+
+        <div class="row  wow fadeInUp">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="row rowquestion">
+                    <div class="col-md-12 col-lg-12  wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <div class="avatardiv">
+                                <img src="~/theme/img/apple-touch-icon.png" class="avatar" data-tipped-options="inline: 'spanuser'" />
+                            </div>
+                            <div class="container d-flex justify-content-center" id='spanuser' style="display:none !important">
+                                <div class="card p-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155"> </div>
+                                        <div class="ml-3 w-100">
+                                            <h4 class="mb-0 mt-0">Alex Morrision</h4> <span>Senior Journalist</span>
+                                            <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                                                <div class="d-flex flex-column"> <span class="articles">Articles</span> <span class="number1">38</span> </div>
+                                                <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">980</span> </div>
+                                                <div class="d-flex flex-column"> <span class="rating">Rating</span> <span class="number3">8.9</span> </div>
+                                            </div>
+                                            <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100">Chat</button> <button class="btn btn-sm btn-primary w-100 ml-2">Follow</button> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="ulmainquestion">
+                                <li class="lititle">
+                                    <h4 class="title"><a href="" class="spanusername">Lorem Ipsum</a></h4>
+                                    <h4 class="title"><a href="" class="spanquestioncreatedate">40 ngày trước</a></h4>
+                                </li>
+                                <li>
+                                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                                </li>
+                                <li class="tag">
+                                    <a href="#" class="post-tag" title="" rel="tag" id="">123</a>
+                                    <a href="#" class="post-tag" title="" rel="tag" id="">123</a>
+                                    <a href="#" class="post-tag" title="" rel="tag" id="">123</a>
+                                    <a href="#" class="post-tag" title="" rel="tag" id="">123</a>
+                                    <a href="#" class="post-tag" title="" rel="tag" id="">123</a>
+                                </li>
+                            </ul>
+
+                            <a class="info infoview" title="Views: 2" id="infoview">
+                                <i class="fi-rr-eye fi"></i>
+                                <span>12</span>
+                            </a>
+
+                            <a class="info infovote" title="Votes: 2">
+                                <i class="fi-rr-heart fi"></i>
+                                <span>12</span>
+                            </a>
+
+                            <a class="info infocomment" title="Comments: 1">
+                                <i class="fi-rr-comment-alt fi"></i>
+                                <span>12</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 sidebar">
+                <h4 class="h3blog">Blog</h4>
+                <div class="box">
+                    <div class="avatardiv">
+                        <img src="~/theme/img/apple-touch-icon.png" class="avatarsidebar" data-tipped-options="inline: 'spanuser'" />
+                    </div>
+                    <ul class="ulmainquestion">
+                        <li class="lititle">
+                            <h4 class="title"><a href="" class="spanusername">Lorem Ipsum</a></h4>
+                        </li>
+                        <li>
+                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!-- #services -->
+
+<script type="text/javascript">
+
 </script>

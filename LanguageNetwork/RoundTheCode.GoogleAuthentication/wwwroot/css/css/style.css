@@ -519,6 +519,7 @@ iframe {
     transition: all 0.2s linear 0s;
     width: 40px;
     z-index: 99;
+    display:none !important;
 }
 
 #topcontrol:hover {
